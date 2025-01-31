@@ -1,3 +1,5 @@
+#boolian
+#output is true true
 x = "Hello World!!"
 y = 2025
 
