@@ -11,5 +11,5 @@ myshopingbag = []
 for i in mylist:
   if "a" in i:
     myshopingbag.append(i)
-
+myshopingbag.sort() #sorting list alphabeticly
 print(myshopingbag) 
