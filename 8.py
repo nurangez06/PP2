@@ -8,3 +8,8 @@ print(red)
 
 for i in range(len(fruits)):  #prints items by referring number
   print(fruits[i])
+
+vegies = ("carrot", "potato", "tomato")
+
+tuple = fruits + vegies #combine 2 tuples into one
+print(tuple)
