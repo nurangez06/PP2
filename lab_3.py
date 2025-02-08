@@ -39,30 +39,31 @@ if puzzle_solution != None:
 def is_prime(n):
     if n < 2:
         return False
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2, n):
         if n % i == 0:
             return False
     return True
 
-def filter_prime(numbers):
-    return [num for num in numbers if is_prime(num)]
-
-numbers = list(map(int, input("Enter numbers : ").split()))
-prime_numbers = filter_prime(numbers)
+numbers = input("Enter numbers: ").split()
+numbers = [int(n) for n in numbers]  
+prime_numbers = [n for n in numbers if is_prime(n)]
 print("Prime numbers:", prime_numbers)
 
 
 
+
 #5
-from itertools import permutations
+def permute(s, ans=""):
+    if len(s) == 0:
+        print(ans)
+        return
+    for i in range(len(s)):
+        new_ans = ans + s[i]
+        new_s = s[:i] + s[i + 1:]
+        permute(new_s, new_ans)
 
-def print_permutations(s):
-    perms = permutations(s)
-    for p in perms:
-        print("".join(p))
-
-string = input("Enter a string: ")
-print_permutations(string)
+user_input = input("Enter a string: ")
+permute(user_input)
 
 
 
