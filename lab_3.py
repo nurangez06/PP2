@@ -84,10 +84,8 @@ def has_33(nums):
             return True
     return False
 
-print(has_33([1, 3, 3])) 
-print(has_33([1, 3, 1, 3]))  
-print(has_33([3, 1, 3])) 
-
+n = [int(x) for x in input("Enter nums: ").split()]
+print(has_33(n))
 
 #8
 def spy_game(nums):
@@ -101,9 +99,8 @@ def spy_game(nums):
     
     return False  
 
-print(spy_game([1, 2, 4, 0, 0, 7, 5]))
-print(spy_game([1, 0, 2, 4, 0, 5, 7]))
-print(spy_game([1, 7, 2, 0, 4, 5, 0]))
+n = [int(x) for x in input("Enter nums: ").split()]
+print(spy_game(n))
 
 
 
