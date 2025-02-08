@@ -125,8 +125,10 @@ def unique_elements(lst):
             unique_list.append(item)
     return unique_list
 
-numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+numbers = input("Enter numbers separated by spaces: ").split()  
+numbers = [int(n) for n in numbers] 
 print("Unique elements:", unique_elements(numbers))
+
 
 
 
