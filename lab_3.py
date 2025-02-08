@@ -150,7 +150,9 @@ def histogram(lst):
     for num in lst:
         print('*' * num)
 
-histogram([4, 9, 7])
+numbers = list(map(int, input("Enter numbers : ").split()))
+histogram(numbers)
+
 
 
 
