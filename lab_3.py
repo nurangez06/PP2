@@ -133,15 +133,16 @@ print("Unique elements:", unique_elements(numbers))
 
 
 #11
-def is_palindrome(s):
-    s = "".join(s.lower().split())  
-    return s == s[::-1]  
+def reverse(s, new=""):
+    new = s[::-1]
+    if new == s:
+        print("Is a polyndrome!!!")
+    else:
+        print("Not a polyndrome!!!")
 
-text = input("Enter a word: ")
-if is_palindrome(text):
-    print("It's a palindrome!")
-else:
-    print("It's not a palindrome.")
+s = str(input("Enter : "))
+reverse(s)
+
 
 
 #12
