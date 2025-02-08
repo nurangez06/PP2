@@ -86,3 +86,11 @@ my1set.discard("cherry")
 
 for x in my1set:
     print(x)
+
+#9 Dictionaries
+person = {"name": "Nura", "age": 18, "city": "New York"}
+print(person["name"])  
+
+person["age"] = 18
+person["job"] = "Engineer"  
+print(person)
