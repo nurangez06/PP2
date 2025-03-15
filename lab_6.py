@@ -6,23 +6,41 @@ import functools
 #1
 def multiply_list(lst):
     return functools.reduce(lambda x, y: x * y, lst)
+numbers = list(map(int, input("Enter numbers : ").split()))
+
+result = multiply_list(numbers)
+
+print(result)
 
 #2
 def count_case(s):
     return sum(1 for c in s if c.isupper()), sum(1 for c in s if c.islower())
+text = input("Enter a string: ")
+upper_count, lower_count = count_case(text)
+
+print("Uppercase letters:", upper_count)
+print("Lowercase letters:", lower_count)
+
 
 #3
 def is_palindrome(s):
     return s == s[::-1]
+text = input("Enter a string: ")
+print("Is palindrome:", is_palindrome(text))
 
 #4
 def delayed_sqrt(num, delay):
     time.sleep(delay / 1000)
     return f"Square root of {num} after {delay} milliseconds is {math.sqrt(num)}"
+number = float(input("Enter a number : "))
+delay_time = int(input("Enter delay in milliseconds: "))
+print(delayed_sqrt(number, delay_time))
 
 #5
 def all_true(t):
     return all(t)
+values = list(map(int, input("Enter values : ").split()))
+print("All values are True:", all_true(values))
 
 
 
