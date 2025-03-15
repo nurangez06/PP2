@@ -49,15 +49,24 @@ print("All values are True:", all_true(values))
 import os
 import shutil
 
-#1
+# 1. List files and directories in a given path
 def list_files_dirs(path):
+    files = []
+    directories = []
+    
+    for item in os.listdir(path):
+        if os.path.isdir(os.path.join(path, item)):
+            directories.append(item)
+        else:
+            files.append(item)
+    
     return {
-        "directories": [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))],
-        "files": [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))],
+        "directories": directories,
+        "files": files,
         "all": os.listdir(path)
     }
 
-#2
+# 2. Check if a path exists and its access permissions
 def check_access(path):
     return {
         "exists": os.path.exists(path),
@@ -66,35 +75,48 @@ def check_access(path):
         "executable": os.access(path, os.X_OK)
     }
 
-#3
+# 3. Get filename and directory from a path
 def path_info(path):
     if os.path.exists(path):
-        return {"filename": os.path.basename(path), "directory": os.path.dirname(path)}
+        return {
+            "filename": os.path.basename(path),
+            "directory": os.path.dirname(path)
+        }
     return "Path does not exist"
 
-#4
+# 4. Count the number of lines in a file
 def count_lines(file_path):
-    with open(file_path, 'r') as file:
-        return sum(1 for _ in file)
+    try:
+        with open(file_path, 'r') as file:
+            return len(file.readlines())
+    except FileNotFoundError:
+        return "File not found"
 
-#5
+# 5. Write a list of items to a file
 def write_list_to_file(file_path, lst):
     with open(file_path, 'w') as file:
-        file.writelines(f"{item}\n" for item in lst)
+        for item in lst:
+            file.write(f"{item}\n")
 
-#6
+# 6. Generate text files from A.txt to Z.txt
 def generate_text_files():
-    for char in range(65, 91):
+    for char in range(ord('A'), ord('Z') + 1):
         with open(f"{chr(char)}.txt", 'w') as file:
             file.write(f"This is {chr(char)}.txt")
 
-#7
+# 7. Copy a file from source to destination
 def copy_file(src, dest):
-    shutil.copyfile(src, dest)
+    try:
+        shutil.copyfile(src, dest)
+    except FileNotFoundError:
+        return "Source file not found"
 
-#8
+# 8. Delete a file if it exists and is writable
 def delete_file(path):
-    if os.path.exists(path) and os.access(path, os.W_OK):
-        os.remove(path)
-        return "File deleted"
-    return "File does not exist or cannot be deleted"
+    if os.path.exists(path):
+        try:
+            os.remove(path)
+            return "File deleted"
+        except PermissionError:
+            return "File cannot be deleted (permission denied)"
+    return "File does not exist"
