@@ -1,13 +1,15 @@
 import psycopg2
+import csv
 
 def connect():
     return psycopg2.connect(
         host="localhost",
-        database="PhoneBook",
-        user="aiazhkkaa",
-        port="5432",
-        password="12345"
+        database="postgres",  
+        user="postgres",  
+        port="5432",  
+        password="masusymay2020"  
     )
+
 
 def search_by_pattern():
     pattern = input("Enter pattern to search: ")
